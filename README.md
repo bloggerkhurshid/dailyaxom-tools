@@ -1,2 +1,14 @@
-# dailyaxom-tools
-Our mission is to provide a comprehensive suite of tools that simplify your daily digital tasks. Whether you need a quick calculation, a format conversion, or text manipulation, we aim to provide fast, reliable, and beautifully designed tools right in your browser.
+# DailyAxom Tools
+
+A premium collection of essential online tools designed for speed, simplicity, and efficiency. Built with React and Vite.
+
+## Features
+- Online Resume Maker
+- Free Image Resizer
+- Image Compressor
+- Images to PDF Converter
+- PDF Compressor
+- Image Format Converter
+
+## Deployment
+This project is configured as a Single Page Application with `react-router-dom` and includes a `_redirects` file for easy deployment on platforms like Cloudflare Pages and Netlify.
