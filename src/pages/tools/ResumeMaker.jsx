@@ -62,7 +62,7 @@ export default function ResumeMaker() {
       margin: [10, 10, 10, 10],
       filename: `${personalDetails.applicantName || 'Applicant'}-Resume.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true, logging: false },
+      html2canvas: { scale: 2, useCORS: true, logging: false, windowWidth: 800, width: 800 },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
     
@@ -288,38 +288,47 @@ export default function ResumeMaker() {
       </section>
 
       {/* HIDDEN PDF TEMPLATE */}
-      <div style={{ position: 'absolute', top: '-9999px', left: '-9999px', width: '210mm' }}>
-        <div ref={pdfRef} style={{ padding: '40px', backgroundColor: '#ffffff', color: '#000000', width: '210mm', minHeight: '297mm', fontFamily: 'Arial, sans-serif', boxSizing: 'border-box' }}>
+      <div style={{ position: 'absolute', top: '-9999px', left: '-9999px', width: '800px' }}>
+        <div ref={pdfRef} style={{ padding: '40px', backgroundColor: '#ffffff', color: '#000000', width: '800px', minHeight: '1123px', fontFamily: 'Arial, sans-serif', boxSizing: 'border-box' }}>
           <h1 style={{ textAlign: 'center', color: '#000000', fontSize: '24px', fontWeight: 'bold', margin: '0 0 20px 0', textTransform: 'uppercase', letterSpacing: '1px', borderBottom: '2px solid #000', paddingBottom: '10px' }}>RESUME</h1>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '30px' }}>
-            <div style={{ flex: '1' }}>
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Name</span>: {personalDetails.applicantName}</p>
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Father's Name</span>: {personalDetails.fatherName}</p>
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Mother's Name</span>: {personalDetails.motherName}</p>
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Date of Birth</span>: {personalDetails.dob}</p>
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Gender</span>: {personalDetails.gender}</p>
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Marital Status</span>: {personalDetails.maritalStatus}</p>
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Category</span>: {personalDetails.category}</p>
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Languages Known</span>: {personalDetails.languages}</p>
-            </div>
-            {photoUrl && (
-              <div style={{ width: '120px', height: '150px', border: '2px solid #000000', marginLeft: '20px', flexShrink: 0 }}>
-                <img src={photoUrl} alt="Passport" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            )}
-          </div>
+          <table style={{ width: '100%', border: 'none', marginBottom: '30px' }}>
+            <tbody>
+              <tr>
+                <td style={{ width: '75%', verticalAlign: 'top' }}>
+                  <table style={{ width: '100%', border: 'none', fontSize: '16px', lineHeight: '1.8' }}>
+                    <tbody>
+                      <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Name</td><td>: {personalDetails.applicantName}</td></tr>
+                      <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Father's Name</td><td>: {personalDetails.fatherName}</td></tr>
+                      <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Mother's Name</td><td>: {personalDetails.motherName}</td></tr>
+                      <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Date of Birth</td><td>: {personalDetails.dob}</td></tr>
+                      <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Gender</td><td>: {personalDetails.gender}</td></tr>
+                      <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Marital Status</td><td>: {personalDetails.maritalStatus}</td></tr>
+                      <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Category</td><td>: {personalDetails.category}</td></tr>
+                      <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Languages Known</td><td>: {personalDetails.languages}</td></tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td style={{ width: '25%', verticalAlign: 'top', textAlign: 'right' }}>
+                  {photoUrl && (
+                    <img src={photoUrl} alt="Passport" style={{ width: '120px', height: '150px', border: '2px solid #000000', objectFit: 'cover', float: 'right' }} />
+                  )}
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
           <div style={{ marginBottom: '30px' }}>
-            <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Contact Number</span>: {personalDetails.mobileNumber}</p>
-            <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Email ID</span>: {personalDetails.email}</p>
-            <div style={{ display: 'flex', fontSize: '16px', margin: '0 0 10px 0' }}>
-              <span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px', flexShrink: 0 }}>Address</span>
-              <span>: {personalDetails.address}</span>
-            </div>
-            {personalDetails.experience && (
-              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Experience</span>: {personalDetails.experience}</p>
-            )}
+            <table style={{ width: '100%', border: 'none', fontSize: '16px', lineHeight: '1.8' }}>
+              <tbody>
+                <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Contact Number</td><td>: {personalDetails.mobileNumber}</td></tr>
+                <tr><td style={{ width: '160px', fontWeight: 'bold' }}>Email ID</td><td>: {personalDetails.email}</td></tr>
+                <tr><td style={{ width: '160px', fontWeight: 'bold', verticalAlign: 'top' }}>Address</td><td style={{ verticalAlign: 'top' }}>: {personalDetails.address}</td></tr>
+                {personalDetails.experience && (
+                  <tr><td style={{ width: '160px', fontWeight: 'bold', verticalAlign: 'top' }}>Experience</td><td style={{ verticalAlign: 'top' }}>: {personalDetails.experience}</td></tr>
+                )}
+              </tbody>
+            </table>
           </div>
 
           <div style={{ marginBottom: '30px' }}>
@@ -382,16 +391,20 @@ export default function ResumeMaker() {
               I hereby declare that the above particulars of facts and information stated are true, correct and complete to the best of my belief and knowledge.
             </p>
             
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-              <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
-                <p style={{ margin: '0 0 10px 0' }}>Date: ........................</p>
-                <p style={{ margin: '0' }}>Place: ........................</p>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <p style={{ width: '200px', borderBottom: '1px solid #000000', margin: '0 0 10px 0' }}></p>
-                <p style={{ fontSize: '16px', fontWeight: 'bold', margin: '0' }}>Signature</p>
-              </div>
-            </div>
+            <table style={{ width: '100%', border: 'none', marginTop: '40px' }}>
+              <tbody>
+                <tr>
+                  <td style={{ width: '50%', verticalAlign: 'bottom', fontSize: '16px', fontWeight: 'bold' }}>
+                    <p style={{ margin: '0 0 10px 0' }}>Date: ........................</p>
+                    <p style={{ margin: '0' }}>Place: ........................</p>
+                  </td>
+                  <td style={{ width: '50%', verticalAlign: 'bottom', textAlign: 'right' }}>
+                    <p style={{ width: '200px', borderBottom: '1px solid #000000', margin: '0 0 10px auto' }}></p>
+                    <p style={{ fontSize: '16px', fontWeight: 'bold', margin: '0', paddingRight: '60px' }}>Signature</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
