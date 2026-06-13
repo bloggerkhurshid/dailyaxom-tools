@@ -52,25 +52,28 @@ export default function ResumeMaker() {
   const addOther = () => setOtherQualifications([...otherQualifications, { id: Date.now(), exam: '', institute: '', passingYear: '', percentage: '', duration: '' }]);
   const removeOther = (id) => setOtherQualifications(otherQualifications.filter(item => item.id !== id));
 
-  const generatePDF = (e) => {
+  const generatePDF = async (e) => {
     e.preventDefault();
     setIsGenerating(true);
     
     const element = pdfRef.current;
-    element.style.display = 'block';
     
     const opt = {
       margin: [10, 10, 10, 10],
       filename: `${personalDetails.applicantName || 'Applicant'}-Resume.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
+      html2canvas: { scale: 2, useCORS: true, logging: false },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
     
-    html2pdf().set(opt).from(element).save().then(() => {
-      element.style.display = 'none';
+    try {
+      await html2pdf().set(opt).from(element).save();
+    } catch (error) {
+      console.error("PDF generation failed", error);
+      alert("Failed to generate PDF. Please try again.");
+    } finally {
       setIsGenerating(false);
-    });
+    }
   };
 
   return (
@@ -285,7 +288,7 @@ export default function ResumeMaker() {
       </section>
 
       {/* HIDDEN PDF TEMPLATE */}
-      <div style={{ display: 'none' }}>
+      <div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
         <div ref={pdfRef} className="bg-white text-black p-10 mx-auto" style={{ width: '210mm', minHeight: '297mm', fontFamily: 'Arial, sans-serif' }}>
           <h1 style={{ textAlign: 'center', color: '#000000', fontSize: '24px', fontWeight: 'bold', margin: '0 0 5px 0', textTransform: 'uppercase', letterSpacing: '1px' }}>RESUME</h1>
           
