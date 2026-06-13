@@ -288,57 +288,60 @@ export default function ResumeMaker() {
       </section>
 
       {/* HIDDEN PDF TEMPLATE */}
-      <div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
-        <div ref={pdfRef} className="p-10 mx-auto" style={{ backgroundColor: '#ffffff', color: '#000000', width: '210mm', minHeight: '297mm', fontFamily: 'Arial, sans-serif' }}>
-          <h1 style={{ textAlign: 'center', color: '#000000', fontSize: '24px', fontWeight: 'bold', margin: '0 0 5px 0', textTransform: 'uppercase', letterSpacing: '1px' }}>RESUME</h1>
+      <div style={{ position: 'absolute', top: '-9999px', left: '-9999px', width: '210mm' }}>
+        <div ref={pdfRef} style={{ padding: '40px', backgroundColor: '#ffffff', color: '#000000', width: '210mm', minHeight: '297mm', fontFamily: 'Arial, sans-serif', boxSizing: 'border-box' }}>
+          <h1 style={{ textAlign: 'center', color: '#000000', fontSize: '24px', fontWeight: 'bold', margin: '0 0 20px 0', textTransform: 'uppercase', letterSpacing: '1px', borderBottom: '2px solid #000', paddingBottom: '10px' }}>RESUME</h1>
           
-          <div className="flex justify-between items-start mb-8">
-            <div className="space-y-3 flex-1">
-              <p className="text-lg"><span className="font-bold inline-block w-40">Name</span>: {personalDetails.applicantName}</p>
-              <p className="text-lg"><span className="font-bold inline-block w-40">Father's Name</span>: {personalDetails.fatherName}</p>
-              <p className="text-lg"><span className="font-bold inline-block w-40">Mother's Name</span>: {personalDetails.motherName}</p>
-              <p className="text-lg"><span className="font-bold inline-block w-40">Date of Birth</span>: {personalDetails.dob}</p>
-              <p className="text-lg"><span className="font-bold inline-block w-40">Gender</span>: {personalDetails.gender}</p>
-              <p className="text-lg"><span className="font-bold inline-block w-40">Marital Status</span>: {personalDetails.maritalStatus}</p>
-              <p className="text-lg"><span className="font-bold inline-block w-40">Category</span>: {personalDetails.category}</p>
-              <p className="text-lg"><span className="font-bold inline-block w-40">Languages Known</span>: {personalDetails.languages}</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '30px' }}>
+            <div style={{ flex: '1' }}>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Name</span>: {personalDetails.applicantName}</p>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Father's Name</span>: {personalDetails.fatherName}</p>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Mother's Name</span>: {personalDetails.motherName}</p>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Date of Birth</span>: {personalDetails.dob}</p>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Gender</span>: {personalDetails.gender}</p>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Marital Status</span>: {personalDetails.maritalStatus}</p>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Category</span>: {personalDetails.category}</p>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Languages Known</span>: {personalDetails.languages}</p>
             </div>
             {photoUrl && (
-              <div className="w-32 h-40 flex-shrink-0 ml-4" style={{ border: '2px solid #000000' }}>
-                <img src={photoUrl} alt="Passport" className="w-full h-full object-cover" />
+              <div style={{ width: '120px', height: '150px', border: '2px solid #000000', marginLeft: '20px', flexShrink: 0 }}>
+                <img src={photoUrl} alt="Passport" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             )}
           </div>
 
-          <div className="space-y-3 mb-8">
-            <p className="text-lg"><span className="font-bold inline-block w-40">Contact Number</span>: {personalDetails.mobileNumber}</p>
-            <p className="text-lg"><span className="font-bold inline-block w-40">Email ID</span>: {personalDetails.email}</p>
-            <p className="text-lg"><span className="font-bold inline-block w-40 align-top">Address</span>: <span className="inline-block w-[400px]">{personalDetails.address}</span></p>
+          <div style={{ marginBottom: '30px' }}>
+            <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Contact Number</span>: {personalDetails.mobileNumber}</p>
+            <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Email ID</span>: {personalDetails.email}</p>
+            <div style={{ display: 'flex', fontSize: '16px', margin: '0 0 10px 0' }}>
+              <span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px', flexShrink: 0 }}>Address</span>
+              <span>: {personalDetails.address}</span>
+            </div>
             {personalDetails.experience && (
-              <p className="text-lg"><span className="font-bold inline-block w-40">Experience</span>: {personalDetails.experience}</p>
+              <p style={{ fontSize: '16px', margin: '0 0 10px 0' }}><span style={{ fontWeight: 'bold', display: 'inline-block', width: '160px' }}>Experience</span>: {personalDetails.experience}</p>
             )}
           </div>
 
-          <div className="mb-8">
-            <h2 className="text-xl font-bold underline mb-4">Educational Qualifications</h2>
-            <table className="w-full border-collapse text-center" style={{ border: '1px solid #000000' }}>
+          <div style={{ marginBottom: '30px' }}>
+            <h2 style={{ fontSize: '18px', fontWeight: 'bold', textDecoration: 'underline', margin: '0 0 15px 0' }}>Educational Qualifications</h2>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center', border: '1px solid #000000' }}>
               <thead>
                 <tr>
-                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Exam Name</th>
-                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Board/University</th>
-                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Passing Year</th>
-                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Percentage</th>
-                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Division</th>
+                  <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Exam Name</th>
+                  <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Board/University</th>
+                  <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Passing Year</th>
+                  <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Percentage</th>
+                  <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Division</th>
                 </tr>
               </thead>
               <tbody>
                 {education.map(edu => (
                   <tr key={edu.id}>
-                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.exam}</td>
-                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.board}</td>
-                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.passingYear}</td>
-                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.percentage}%</td>
-                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.division}</td>
+                    <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{edu.exam}</td>
+                    <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{edu.board}</td>
+                    <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{edu.passingYear}</td>
+                    <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{edu.percentage}%</td>
+                    <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{edu.division}</td>
                   </tr>
                 ))}
               </tbody>
@@ -346,26 +349,26 @@ export default function ResumeMaker() {
           </div>
 
           {otherQualifications[0]?.exam && (
-            <div className="mb-8">
-              <h2 className="text-xl font-bold underline mb-4">Other Qualifications</h2>
-              <table className="w-full border-collapse text-center" style={{ border: '1px solid #000000' }}>
+            <div style={{ marginBottom: '30px' }}>
+              <h2 style={{ fontSize: '18px', fontWeight: 'bold', textDecoration: 'underline', margin: '0 0 15px 0' }}>Other Qualifications</h2>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center', border: '1px solid #000000' }}>
                 <thead>
                   <tr>
-                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Qualification Name</th>
-                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Institute</th>
-                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Passing Year</th>
-                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Score/Grade</th>
-                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Duration</th>
+                    <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Qualification Name</th>
+                    <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Institute</th>
+                    <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Passing Year</th>
+                    <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Score/Grade</th>
+                    <th style={{ padding: '8px', border: '1px solid #000000', backgroundColor: '#f3f4f6', fontSize: '14px' }}>Duration</th>
                   </tr>
                 </thead>
                 <tbody>
                   {otherQualifications.map(qual => qual.exam ? (
                     <tr key={qual.id}>
-                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.exam}</td>
-                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.institute}</td>
-                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.passingYear}</td>
-                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.percentage}</td>
-                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.duration}</td>
+                      <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{qual.exam}</td>
+                      <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{qual.institute}</td>
+                      <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{qual.passingYear}</td>
+                      <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{qual.percentage}</td>
+                      <td style={{ padding: '8px', border: '1px solid #000000', fontSize: '14px' }}>{qual.duration}</td>
                     </tr>
                   ) : null)}
                 </tbody>
@@ -373,20 +376,20 @@ export default function ResumeMaker() {
             </div>
           )}
 
-          <div className="mt-16">
-            <h2 className="text-xl font-bold underline mb-4">Declaration</h2>
-            <p className="text-lg leading-relaxed text-justify mb-16">
+          <div style={{ marginTop: '50px' }}>
+            <h2 style={{ fontSize: '18px', fontWeight: 'bold', textDecoration: 'underline', margin: '0 0 15px 0' }}>Declaration</h2>
+            <p style={{ fontSize: '16px', lineHeight: '1.6', textAlign: 'justify', margin: '0 0 60px 0' }}>
               I hereby declare that the above particulars of facts and information stated are true, correct and complete to the best of my belief and knowledge.
             </p>
             
-            <div className="flex justify-between items-end">
-              <div className="text-lg font-bold">
-                <p>Date: ........................</p>
-                <p className="mt-4">Place: ........................</p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+              <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                <p style={{ margin: '0 0 10px 0' }}>Date: ........................</p>
+                <p style={{ margin: '0' }}>Place: ........................</p>
               </div>
-              <div className="text-center">
-                <p className="w-48 mb-2" style={{ borderBottom: '1px solid #000000' }}></p>
-                <p className="font-bold text-lg">Signature</p>
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ width: '200px', borderBottom: '1px solid #000000', margin: '0 0 10px 0' }}></p>
+                <p style={{ fontSize: '16px', fontWeight: 'bold', margin: '0' }}>Signature</p>
               </div>
             </div>
           </div>
