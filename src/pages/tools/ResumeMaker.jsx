@@ -289,7 +289,7 @@ export default function ResumeMaker() {
 
       {/* HIDDEN PDF TEMPLATE */}
       <div style={{ position: 'absolute', top: '-9999px', left: '-9999px' }}>
-        <div ref={pdfRef} className="bg-white text-black p-10 mx-auto" style={{ width: '210mm', minHeight: '297mm', fontFamily: 'Arial, sans-serif' }}>
+        <div ref={pdfRef} className="p-10 mx-auto" style={{ backgroundColor: '#ffffff', color: '#000000', width: '210mm', minHeight: '297mm', fontFamily: 'Arial, sans-serif' }}>
           <h1 style={{ textAlign: 'center', color: '#000000', fontSize: '24px', fontWeight: 'bold', margin: '0 0 5px 0', textTransform: 'uppercase', letterSpacing: '1px' }}>RESUME</h1>
           
           <div className="flex justify-between items-start mb-8">
@@ -304,7 +304,7 @@ export default function ResumeMaker() {
               <p className="text-lg"><span className="font-bold inline-block w-40">Languages Known</span>: {personalDetails.languages}</p>
             </div>
             {photoUrl && (
-              <div className="w-32 h-40 border-2 border-black flex-shrink-0 ml-4">
+              <div className="w-32 h-40 flex-shrink-0 ml-4" style={{ border: '2px solid #000000' }}>
                 <img src={photoUrl} alt="Passport" className="w-full h-full object-cover" />
               </div>
             )}
@@ -321,24 +321,24 @@ export default function ResumeMaker() {
 
           <div className="mb-8">
             <h2 className="text-xl font-bold underline mb-4">Educational Qualifications</h2>
-            <table className="w-full border-collapse border border-black text-center">
+            <table className="w-full border-collapse text-center" style={{ border: '1px solid #000000' }}>
               <thead>
                 <tr>
-                  <th className="border border-black p-2 bg-gray-100">Exam Name</th>
-                  <th className="border border-black p-2 bg-gray-100">Board/University</th>
-                  <th className="border border-black p-2 bg-gray-100">Passing Year</th>
-                  <th className="border border-black p-2 bg-gray-100">Percentage</th>
-                  <th className="border border-black p-2 bg-gray-100">Division</th>
+                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Exam Name</th>
+                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Board/University</th>
+                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Passing Year</th>
+                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Percentage</th>
+                  <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Division</th>
                 </tr>
               </thead>
               <tbody>
                 {education.map(edu => (
                   <tr key={edu.id}>
-                    <td className="border border-black p-2">{edu.exam}</td>
-                    <td className="border border-black p-2">{edu.board}</td>
-                    <td className="border border-black p-2">{edu.passingYear}</td>
-                    <td className="border border-black p-2">{edu.percentage}%</td>
-                    <td className="border border-black p-2">{edu.division}</td>
+                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.exam}</td>
+                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.board}</td>
+                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.passingYear}</td>
+                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.percentage}%</td>
+                    <td className="p-2" style={{ border: '1px solid #000000' }}>{edu.division}</td>
                   </tr>
                 ))}
               </tbody>
@@ -348,24 +348,24 @@ export default function ResumeMaker() {
           {otherQualifications[0]?.exam && (
             <div className="mb-8">
               <h2 className="text-xl font-bold underline mb-4">Other Qualifications</h2>
-              <table className="w-full border-collapse border border-black text-center">
+              <table className="w-full border-collapse text-center" style={{ border: '1px solid #000000' }}>
                 <thead>
                   <tr>
-                    <th className="border border-black p-2 bg-gray-100">Qualification Name</th>
-                    <th className="border border-black p-2 bg-gray-100">Institute</th>
-                    <th className="border border-black p-2 bg-gray-100">Passing Year</th>
-                    <th className="border border-black p-2 bg-gray-100">Score/Grade</th>
-                    <th className="border border-black p-2 bg-gray-100">Duration</th>
+                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Qualification Name</th>
+                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Institute</th>
+                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Passing Year</th>
+                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Score/Grade</th>
+                    <th className="p-2" style={{ border: '1px solid #000000', backgroundColor: '#f3f4f6' }}>Duration</th>
                   </tr>
                 </thead>
                 <tbody>
                   {otherQualifications.map(qual => qual.exam ? (
                     <tr key={qual.id}>
-                      <td className="border border-black p-2">{qual.exam}</td>
-                      <td className="border border-black p-2">{qual.institute}</td>
-                      <td className="border border-black p-2">{qual.passingYear}</td>
-                      <td className="border border-black p-2">{qual.percentage}</td>
-                      <td className="border border-black p-2">{qual.duration}</td>
+                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.exam}</td>
+                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.institute}</td>
+                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.passingYear}</td>
+                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.percentage}</td>
+                      <td className="p-2" style={{ border: '1px solid #000000' }}>{qual.duration}</td>
                     </tr>
                   ) : null)}
                 </tbody>
@@ -385,7 +385,7 @@ export default function ResumeMaker() {
                 <p className="mt-4">Place: ........................</p>
               </div>
               <div className="text-center">
-                <p className="border-b border-black w-48 mb-2"></p>
+                <p className="w-48 mb-2" style={{ borderBottom: '1px solid #000000' }}></p>
                 <p className="font-bold text-lg">Signature</p>
               </div>
             </div>
