@@ -115,7 +115,7 @@ export default function ImageCompressor() {
 
   return (
     <>
-    <SEO title="Image Compressor | Reduce Photo Size Online" description="Compress images without losing quality online. Reduce file size for faster uploads." url="/image-compressor" />
+    <SEO title="Image Compressor - Reduce Photo Size Online" description="Compress images without losing quality online. Reduce file size for faster uploads." url="/image-compressor" />
     <div className="max-w-7xl mx-auto space-y-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Actions / Inputs */}

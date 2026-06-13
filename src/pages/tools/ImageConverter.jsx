@@ -93,7 +93,7 @@ export default function ImageConverter() {
 
   return (
     <>
-    <SEO title="Image Format Converter | JPG, PNG, WEBP" description="Convert images instantly between JPG, PNG, and WEBP formats online." url="/image-converter" />
+    <SEO title="Image Format Converter - JPG, PNG, WEBP" description="Convert images instantly between JPG, PNG, and WEBP formats online." url="/image-converter" />
     <div className="max-w-7xl mx-auto space-y-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Actions / Inputs */}

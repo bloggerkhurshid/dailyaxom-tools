@@ -170,7 +170,7 @@ export default function PdfCompressor() {
 
   return (
     <>
-    <SEO title="PDF Compressor | Reduce PDF File Size Online" description="Compress PDF files online to specific target sizes entirely in your browser." url="/pdf-compressor" />
+    <SEO title="PDF Compressor - Reduce PDF File Size Online" description="Compress PDF files online to specific target sizes entirely in your browser." url="/pdf-compressor" />
     <div className="max-w-7xl mx-auto space-y-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         

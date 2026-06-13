@@ -92,7 +92,7 @@ export default function ImagesToPdf() {
 
   return (
     <>
-    <SEO title="Images to PDF Converter | DailyAxom Tools" description="Convert multiple images to PDF online with quality control." url="/images-to-pdf" />
+    <SEO title="Images to PDF Converter - DailyAxom Tools" description="Convert multiple images to PDF online with quality control." url="/images-to-pdf" />
     <div className="max-w-7xl mx-auto space-y-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         

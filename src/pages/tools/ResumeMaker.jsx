@@ -75,7 +75,7 @@ export default function ResumeMaker() {
 
   return (
     <>
-    <SEO title="Free Online Resume Maker | DailyAxom Tools" description="Create a professional resume for job applications instantly." url="/resume-maker" />
+    <SEO title="Online Resume Maker - DailyAxom Tools" description="Create a professional resume for job applications instantly." url="/resume-maker" />
     <div className="max-w-7xl mx-auto space-y-12">
       <form onSubmit={generatePDF} className="space-y-8">
         {/* Step 1: Personal Details */}

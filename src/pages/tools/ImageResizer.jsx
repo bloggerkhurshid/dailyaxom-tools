@@ -105,7 +105,7 @@ export default function ImageResizer() {
 
   return (
     <>
-    <SEO title="Free Image Resizer Tool | DailyAxom Tools" description="Resize images to passport size, ADRE photo, and custom dimensions online." url="/image-resizer" />
+    <SEO title="Free Image Resizer - DailyAxom Tools" description="Resize images to passport size, ADRE photo, and custom dimensions online." url="/image-resizer" />
     <div className="max-w-7xl mx-auto space-y-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Actions / Inputs */}
